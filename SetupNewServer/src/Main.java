@@ -20,18 +20,14 @@ public class Main
     {
         Scanner input = new Scanner(System.in);
         //Get profile name
-        System.out.println("Enter profile name: ");
+        System.out.print(Utils.makeInputTable("Enter profile name"));
         String profileName = input.nextLine().replace("\n", "").replace("\r", "").trim();
         //Get vendor
-        System.out.println("Enter Vendor: ");
-        for (int i = 0; i < vendors.length; i++)
-        {
-            System.out.println(i + 1 + ") " + vendors[i] + vendorNotes[i]);
-        }
+        System.out.print(Utils.makeInputTable("", "Enter a vendor", vendors));
         int vendorIndex = Integer.parseInt(input.nextLine()) - 1;
         String vendor = vendors[vendorIndex];
         //Get server version
-        System.out.println("Enter the server version: ");
+        System.out.print("\n" + Utils.makeInputTable("Enter server version"));
         String version = input.nextLine().replace("\n", "").replace("\r", "").trim();
         verifyPresetDownload(vendor, version);
         File outputPath = new File(profilesFolderPath + "\\" + profileName + "\\" + version);
@@ -51,7 +47,7 @@ public class Main
             if (str.equals(version))
             {
                 //If jar is already downloaded, say so, and return
-                System.out.println("[#][Already Found MineCraft Server Version " + version + " From " + vendor + "]");
+                System.out.println(Utils.makeBox("", "Already Found MineCraft Server Version " + version + " From " + vendor));
                 return;
             }
         }
@@ -69,7 +65,7 @@ public class Main
 
     public static void downloadNewPreset(String vendor, String version) throws IOException //TODO: Add downloads for non-mojang
     {
-        System.out.println("[+][Downloading MineCraft server version " + version + " from " + vendor + "]");
+        System.out.println(Utils.makeBox("", "Downloading MineCraft server version " + version + " from " + vendor));
         if (vendor.equals("Mojang"))
         {
             URL website = new URL("https://s3.amazonaws.com/Minecraft.Download/versions/" + version + "/minecraft_server." + version + ".jar");
@@ -83,7 +79,7 @@ public class Main
         }
         else
         {
-            System.out.println("[!][" + vendor + " is not yet implemented]");
+            System.out.println(Utils.makeBox("", vendor + " is not yet implemented"));
         }
     }
 }
