@@ -77,6 +77,10 @@ public class Main
             FileOutputStream fos = new FileOutputStream(presetsFolderPath + vendor + "\\" + version + ".jar");
             fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
         }
+        else if(vendor.equals("Spigot"))
+        {
+
+        }
         else
         {
             System.out.println("[!][" + vendor + " is not yet implemented]");
