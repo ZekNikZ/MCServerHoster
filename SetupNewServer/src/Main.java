@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Main
 {
-    private static final String mainFolderPath = "C:\\Users\\calin\\Desktop\\Servers\\";
+    private static final String mainFolderPath = "Servers\\";
     private static final String presetsFolderPath = mainFolderPath + "Presets\\";
     private static final String profilesFolderPath = mainFolderPath + "Profiles\\";
     private static String[] vendors = {"Mojang", "Spigot", "Mod Packs"};
